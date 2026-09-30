@@ -1,0 +1,28 @@
+{
+  "generator": "generate-sdk",
+  "language": "ruby",
+  "version": "1.0.0",
+  "files": [
+    ".gitignore",
+    "README.md",
+    "lib/sigwise.rb",
+    "lib/sigwise/client.rb",
+    "lib/sigwise/errors.rb",
+    "lib/sigwise/resources/api_keys.rb",
+    "lib/sigwise/resources/billing.rb",
+    "lib/sigwise/resources/events.rb",
+    "lib/sigwise/resources/me.rb",
+    "lib/sigwise/resources/objects.rb",
+    "lib/sigwise/resources/overview.rb",
+    "lib/sigwise/resources/rule_firings.rb",
+    "lib/sigwise/resources/rules.rb",
+    "lib/sigwise/resources/settings.rb",
+    "lib/sigwise/resources/signals.rb",
+    "lib/sigwise/resources/usage.rb",
+    "lib/sigwise/resources/webhook_deliveries.rb",
+    "lib/sigwise/resources/webhooks.rb",
+    "lib/sigwise/version.rb",
+    "lib/sigwise/webhook.rb",
+    "sigwise.gemspec"
+  ]
+}
