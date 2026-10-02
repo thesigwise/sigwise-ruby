@@ -30,7 +30,7 @@ module SigWise
       #
       # `GET /v1/billing/ledger`
       #
-      # @param params [Hash] query parameters: type, limit, cursor
+      # @param params [Hash] query parameters: type, limit, group, batch_id, cursor
       # @param options [Hash] per-call :timeout, :max_retries and :headers
       # @return [Hash, Array, nil] the decoded response
       # @raise [SigWise::ApiError]

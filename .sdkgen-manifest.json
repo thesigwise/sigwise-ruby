@@ -1,7 +1,7 @@
 {
   "generator": "generate-sdk",
   "language": "ruby",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "files": [
     ".gitignore",
     "README.md",
@@ -14,6 +14,7 @@
     "lib/sigwise/resources/me.rb",
     "lib/sigwise/resources/objects.rb",
     "lib/sigwise/resources/overview.rb",
+    "lib/sigwise/resources/playground.rb",
     "lib/sigwise/resources/rule_firings.rb",
     "lib/sigwise/resources/rules.rb",
     "lib/sigwise/resources/settings.rb",
