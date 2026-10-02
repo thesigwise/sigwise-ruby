@@ -11,6 +11,7 @@ require "uri"
 require "sigwise/resources/me"
 require "sigwise/resources/overview"
 require "sigwise/resources/objects"
+require "sigwise/resources/playground"
 require "sigwise/resources/events"
 require "sigwise/resources/signals"
 require "sigwise/resources/settings"
@@ -48,6 +49,9 @@ module SigWise
     # An object is anything you want answers about: a user, a listing, an order.
     # @return [Resources::Objects]
     attr_reader :objects
+    # Events and messages are the evidence an object's answers are computed from.
+    # @return [Resources::Playground]
+    attr_reader :playground
     # Events and messages are the evidence an object's answers are computed from.
     # @return [Resources::Events]
     attr_reader :events
@@ -103,6 +107,7 @@ module SigWise
       @me = Resources::Me.new(self)
       @overview = Resources::Overview.new(self)
       @objects = Resources::Objects.new(self)
+      @playground = Resources::Playground.new(self)
       @events = Resources::Events.new(self)
       @signals = Resources::Signals.new(self)
       @settings = Resources::Settings.new(self)
