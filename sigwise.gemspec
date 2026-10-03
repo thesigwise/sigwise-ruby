@@ -7,6 +7,7 @@ require_relative "lib/sigwise/version"
 Gem::Specification.new do |spec|
   spec.name = "sigwise"
   spec.version = SigWise::VERSION
+  spec.authors = ["SigWise"]
   spec.summary = "SigWise API client for Ruby"
   spec.homepage = "https://sigwise.ai/docs"
   spec.license = "Nonstandard"
