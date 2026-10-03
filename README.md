@@ -16,7 +16,7 @@ gem install sigwise
 ```ruby
 require "sigwise"
 
-# Nil arguments fall back to ANALYZE_API_KEY and ANALYZE_SECRET.
+# Nil arguments fall back to SIGWISE_API_KEY and SIGWISE_SECRET.
 sigwise = SigWise::Client.new("your_key_id", "your_secret")
 
 # Configure what you want to know about your objects.
@@ -53,15 +53,15 @@ Create an API key in the console. It is a pair: a public key ID and a
 signing secret (`your_secret`, shown once). The client sends the key ID with every
 request and signs a short-lived HS256 token with the secret, bound to the
 request's method and path. The secret itself is never sent, so keep it on your
-server. Without explicit options the client reads `ANALYZE_API_KEY`,
-`ANALYZE_SECRET` and `ANALYZE_BASE_URL` from the environment.
+server. Without explicit options the client reads `SIGWISE_API_KEY`,
+`SIGWISE_SECRET` and `SIGWISE_BASE_URL` from the environment.
 
 ## Configuration
 
 ```ruby
 sigwise = SigWise::Client.new(
   "your_key_id", "your_secret",
-  base_url: "http://localhost:8080", # default: ANALYZE_BASE_URL or the production API
+  base_url: "http://localhost:8080", # default: SIGWISE_BASE_URL or the production API
   timeout: 10,                       # seconds, per attempt
   max_retries: 3                     # idempotent requests only
 )
@@ -99,7 +99,7 @@ begin
     request.raw_post,
     request.headers["X-Webhook-Signature"],
     request.headers["X-Webhook-Timestamp"],
-    ENV.fetch("ANALYZE_WEBHOOK_SECRET")
+    ENV.fetch("SIGWISE_WEBHOOK_SECRET")
   )
 rescue SigWise::Webhook::VerificationError
   head :bad_request

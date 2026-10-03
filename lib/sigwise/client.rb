@@ -83,23 +83,23 @@ module SigWise
     # @return [Resources::Usage]
     attr_reader :usage
 
-    # @param api_key [String, nil] the API key ID. Defaults to ANALYZE_API_KEY.
-    # @param secret [String, nil] the key's signing secret. Defaults to ANALYZE_SECRET.
-    # @param base_url [String, nil] defaults to ANALYZE_BASE_URL, then the production API.
+    # @param api_key [String, nil] the API key ID. Defaults to SIGWISE_API_KEY.
+    # @param secret [String, nil] the key's signing secret. Defaults to SIGWISE_SECRET.
+    # @param base_url [String, nil] defaults to SIGWISE_BASE_URL, then the production API.
     # @param timeout [Numeric] seconds, per attempt (30)
     # @param max_retries [Integer] applies to idempotent requests only (2)
     # @param headers [Hash{String => String}] extra headers for every request
     def initialize(api_key = nil, secret = nil, base_url: nil, timeout: 30, max_retries: 2, headers: {})
-      api_key = presence(api_key) || presence(ENV["ANALYZE_API_KEY"])
-      secret = presence(secret) || presence(ENV["ANALYZE_SECRET"])
+      api_key = presence(api_key) || presence(ENV["SIGWISE_API_KEY"])
+      secret = presence(secret) || presence(ENV["SIGWISE_SECRET"])
       if api_key.nil? || secret.nil?
         raise ArgumentError,
-              "SigWise: an API key and its secret are required. Pass them to Client.new or set ANALYZE_API_KEY and ANALYZE_SECRET."
+              "SigWise: an API key and its secret are required. Pass them to Client.new or set SIGWISE_API_KEY and SIGWISE_SECRET."
       end
 
       @api_key = api_key
       @secret = secret
-      @base_url = (presence(base_url) || presence(ENV["ANALYZE_BASE_URL"]) || DEFAULT_BASE_URL).chomp("/")
+      @base_url = (presence(base_url) || presence(ENV["SIGWISE_BASE_URL"]) || DEFAULT_BASE_URL).chomp("/")
       @timeout = timeout.to_f
       @max_retries = max_retries
       @headers = headers
