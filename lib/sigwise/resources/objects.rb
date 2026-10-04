@@ -66,6 +66,26 @@ module SigWise
         @client.request("GET", "/v1/objects/{object_id}", {"object_id" => object_id}, nil, nil, options)
       end
 
+      # Delete an object's data.
+      #
+      # Deletes everything stored about the object: its events, answers, rolling
+      # summary, queued analysis, rule state and firings, and webhook deliveries. Use it
+      # when one of your users asks to be forgotten.
+      #
+      # Billing ledger entries keep the object id as financial records. The object
+      # reappears only if you send new events for it.
+      #
+      # `DELETE /v1/objects/{object_id}`
+      #
+      # @param object_id [String]
+      # @param options [Hash] per-call :timeout, :max_retries and :headers
+      # @return [nil]
+      # @raise [SigWise::ApiError]
+      # @raise [SigWise::ConnectionError]
+      def delete(object_id, options = {})
+        @client.request("DELETE", "/v1/objects/{object_id}", {"object_id" => object_id}, nil, nil, options)
+      end
+
       # Get an object's compacted history.
       #
       # Older events are folded into a rolling summary so the analyzer gets a bounded
